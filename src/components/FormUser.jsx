@@ -21,33 +21,33 @@ const FormUser = () => {
 
     const suivant      = ()    => setData({...data, etape: etape + 1 })
     const precedent    = ()    => setData({...data, etape: etape - 1})
-    const onChange     = e     => { setData({...data, [e.target.name]: e.target.value}); console.log(e.target.name, e.target.value) }
+    const onChange     = e     => setData({...data, [e.target.name]: e.target.value}) 
 
     
     switch (etape) {
         case 1:
             return (
                 <FormUserDetails
-                    nextStep        ={suivant}
-                    handleChange    ={onChange}
-                    values          ={values}
+                    suivant  = { suivant }
+                    onChange = { onChange }
+                    values   = { values }
                 />
             )   
         case 2:
             return (
                 <FormPersonalDetails
-                    nextStep        ={suivant}
-                    prevStep        ={precedent}
-                    handleChange    ={onChange}
-                    values          ={values}
+                    suivant   = { suivant }
+                    precedent = { precedent }
+                    onChange  = { onChange }
+                    values    = { values }
                 />
             )    
         case 3:
             return (
                 <Confirm
-                    nextStep    ={suivant}
-                    prevStep    ={precedent}
-                    values      ={values}
+                    suivant   = { suivant }
+                    precedent = { precedent }
+                    values    = { values }
                 />
             ) 
         case 4:     return <Success />

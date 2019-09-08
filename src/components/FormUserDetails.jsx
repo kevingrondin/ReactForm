@@ -4,46 +4,45 @@ import AppBar from 'material-ui/AppBar';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton'
 
-const FormUserDetails = ({nextStep, values, handleChange}) => {
+const FormUserDetails = ({ suivant, onChange, values }) => {
 
     const continuer = (e) => { 
         e.preventDefault(); 
-        nextStep(); 
+        suivant(); 
     }
     
+    const { prenom, nom, email } = values
+
     return (
         <MuiThemeProvider>
             <>
                 <AppBar title="Formulaire Emploie" />
                 <TextField 
-                    name='prenom'
-                    hinText = "Enter votre Prenom" 
-                    floatingLabelText = "Prenom"
-                    onChange = { handleChange }
-                    defaultValue = {values.prenom}
+                    name                = 'prenom'
+                    floatingLabelText   = 'Prenom'
+                    onChange            = { onChange }
+                    defaultValue        = { prenom}
                 />
                 <br/>
                 <TextField 
-                    name = 'nom'
-                    hinText = "Entrer votre Nom" 
-                    floatingLabelText = "Nom"
-                    onChange = { handleChange }
-                    defaultValue = {values.nom}
+                    name                = 'nom'
+                    floatingLabelText   = 'Nom'
+                    onChange            = { onChange }
+                    defaultValue        = { nom }
                 />
                 <br/>
                 <TextField 
-                    name='email'
-                    hinText = "Enter votre email" 
-                    floatingLabelText = "Email"
-                    onChange = { handleChange }
-                    defaultValue = {values.email}
+                    name                = 'email'
+                    floatingLabelText   = 'Email'
+                    onChange            = { onChange }
+                    defaultValue        = { email }
                 />
                 <br/>
                 <RaisedButton
-                    label="Continuer"
-                    primary={true}
-                    style={styles.button}
-                    onClick={continuer}
+                    label               = 'Continuer'
+                    primary             = { true }
+                    style               = { styles.button }
+                    onClick             = { continuer }
                 />                    
             </>
         </MuiThemeProvider>

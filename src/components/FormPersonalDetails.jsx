@@ -4,57 +4,57 @@ import AppBar from 'material-ui/AppBar';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton'
 
-const FormPersonalDetails = ({nextStep, prevStep, values, handleChange}) => {
+const FormPersonalDetails = ({ suivant, precedent, onChange, values }) => {
 
     const continuer = e => {
         e.preventDefault();
-        nextStep();
+        suivant();
     }
 
     const retour = e => {
         e.preventDefault();
-        prevStep();
+        precedent();
     }
+
+    const { profession, ville, salaire } = values
 
     return (
         <MuiThemeProvider>
             <>
                 <AppBar title="Enter vos informations" />
                 <TextField 
-                    name='profession'
-                    hinText = "Enter votre profession" 
-                    floatingLabelText = "Profession"
-                    onChange = {handleChange}
-                    defaultValue = {values.profession}
+                    name                = 'profession'
+                    floatingLabelText   = 'Profession'
+                    onChange            = { onChange }
+                    defaultValue        = { profession }
                 />
                 <br/>
                 <TextField
-                    name='ville'
-                    hinText = "Enter your ville" 
-                    floatingLabelText = "Ville"
-                    onChange = { handleChange }
-                    defaultValue = {values.ville}
+                    name                = 'ville'
+                    floatingLabelText   = 'Ville'
+                    onChange            = { onChange }
+                    defaultValue        = { ville }
                 />
                 <br/>
                 <TextField 
-                    name='salaire'
-                    hinText = "Salaire souhaité" 
-                    floatingLabelText = "Salaire"
-                    onChange = { handleChange }
-                    defaultValue = {values.salaire}
+                    name                = 'salaire'
+                    hinText             = 'Salaire souhaité' 
+                    floatingLabelText   = 'Salaire'
+                    onChange            = { onChange }
+                    defaultValue        = { salaire }
                 />
                 <br/>
                 <RaisedButton
-                    label="Continue"
-                    primary={true}
-                    style={styles.button}
-                    onClick={continuer}
+                    label   = 'Continue'
+                    primary = { true }
+                    style   = { styles.button }
+                    onClick = { continuer }
                 />  
                 <RaisedButton
-                    label="Retour"
-                    primary={false}
-                    style={styles.button}
-                    onClick={retour}
+                    label   = 'Retour'
+                    primary = { false }
+                    style   = { styles.button }
+                    onClick = { retour }
                 />                   
             </>
         </MuiThemeProvider>
